@@ -2,7 +2,7 @@ getwd()
 
 setwd("/data/AM/meth")
 
-library("TCGAbiolinks")
+library(TCGAbiolinks)
 library(SummarizedExperiment)
 library(EDASeq)
 library(ConsensusClusterPlus)
