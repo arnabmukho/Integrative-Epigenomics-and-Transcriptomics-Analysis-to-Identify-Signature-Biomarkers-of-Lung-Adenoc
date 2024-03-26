@@ -89,24 +89,6 @@ TCGAVisualize_volcano(
   width = 10
 )
 
-#starburst plot
-starburst <- TCGAvisualize_starburst(
-  met = luad.met, 
-  exp = dataDEGs,
-  genome = "hg19",
-  group1 = "Primary Tumor",
-  group2 = "Solid Tissue Normal",
-  filename = "starburst.png",
-  met.platform = "Illumina Human Methylation 450",
-  met.p.cut = 10^-5,
-  exp.p.cut = 10^-5,
-  diffmean.cut = 0.25,
-  logFC.cut = 3,
-  names = FALSE, 
-  height = 10,
-  width = 15,
-  dpi = 300)
-
 #export the list of DEGs
 write.csv(dataDEGs, "/data/AM/DEG.csv", row.names = TRUE)
 
@@ -211,6 +193,24 @@ luad.met <- TCGAanalyze_DMC(luad.met, groupCol = "sample_type",
                             diffmean.cut = 0.25,
                             legend = "State",
                             plot.filename = "metvolcano.png")
+
+#starburst plot
+starburst <- TCGAvisualize_starburst(
+  met = luad.met, 
+  exp = dataDEGs,
+  genome = "hg19",
+  group1 = "Primary Tumor",
+  group2 = "Solid Tissue Normal",
+  filename = "starburst.png",
+  met.platform = "Illumina Human Methylation 450",
+  met.p.cut = 10^-5,
+  exp.p.cut = 10^-5,
+  diffmean.cut = 0.25,
+  logFC.cut = 3,
+  names = FALSE, 
+  height = 10,
+  width = 15,
+  dpi = 300)
 
 BiocManager::install("ELMER")
 
